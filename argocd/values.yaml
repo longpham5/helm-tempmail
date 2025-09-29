@@ -1,0 +1,16 @@
+server:
+  ingress:
+    enabled: true
+    ingressClassName: "nginx"
+    controller: generic
+    hostname: argocd.longppham5.xyz
+    path: /
+    pathType: Prefix
+    tls: true
+    extraTls:
+      - hosts:
+          - argocd.longppham5.xyz
+        secretName: argocd-server-tls
+    annotations:
+      nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+      cert-manager.io/cluster-issuer: "letsencrypt-production"
