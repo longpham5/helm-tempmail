@@ -11,13 +11,7 @@ server:
       nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
       cert-manager.io/cluster-issuer: "letsencrypt-production"
       nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
-    extraRules:
-      - http:
-          paths:
-            - path: /
-              pathType: Prefix
-              backend:
-                service:
-                  name: argocd-server
-                  port:
-                    number: 80
+    configs:
+      params:
+        server.insecure: true
+
