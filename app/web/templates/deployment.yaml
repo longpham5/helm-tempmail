@@ -46,7 +46,7 @@ spec:
               protocol: TCP
           env:
             - name: MONGO_URL
-              value: "mongodb://admin:Str0ugPassw0rd!@mongo-service:27017/?authSource=admin"
+              value: "mongodb://root:r00tPa55w0rd!@mongo-service:27017/?authSource=admin"
             - name: MONGO_DB
               value: "tempmail"
             - name: SECRET
