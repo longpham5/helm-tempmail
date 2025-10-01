@@ -1,5 +1,14 @@
+global:
+  security:
+    allowInsecureImages: true
+
 architecture: standalone
-replicaCount: 1          
+replicaCount: 1
+image:
+  registry: docker.io
+  repository: bitnamisecure/mongodb
+  tag: "latest"
+     
 auth:
   rootPassword: r00tPa55w0rd!
   username: admin
