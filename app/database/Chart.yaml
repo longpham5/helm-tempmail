@@ -27,3 +27,5 @@ dependencies:
   - name: mongodb
     version: 16.5.45
     repository: https://charts.bitnami.com/bitnami
+    import-values:
+      - mongodb
