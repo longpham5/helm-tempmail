@@ -124,3 +124,42 @@ tolerations: []
 
 affinity: {}
 
+mongodb:
+  global:
+    security:
+      allowInsecureImages: true
+
+  architecture: standalone
+  replicaCount: 1
+  image:
+    registry: docker.io
+    repository: bitnamisecure/mongodb
+    tag: "latest"
+       
+  auth:
+    rootPassword: r00tPa55w0rd!
+    username: admin
+    password: Str0ugPassw0rd!
+    database: admin
+  persistence:
+    enabled: true
+    size: 8Gi
+    storageClass: "standard"
+    accessModes:
+      - ReadWriteOnce
+    mountPath: /bitnami/mongodb
+
+  resources:
+    requests:
+      memory: 512Mi
+      cpu: 500m
+    limits:
+      memory: 768Mi
+      cpu: 750m
+
+  service:
+    type: ClusterIP
+    portName: mongodb
+    ports:
+      mongodb: 27017
+    nameOverride: mongo-service
