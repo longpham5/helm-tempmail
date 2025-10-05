@@ -621,6 +621,12 @@ data:
         - __meta_kubernetes_pod_phase
       scrape_interval: 5m
       scrape_timeout: 30s
+    - job_name: 'postfix-server-exporter'
+      metrics_path: /metrics
+      static_configs:
+        - targets: 
+          - http://mail.longppham5.xyz:9100
+    
     alerting:
       alertmanagers:
       - kubernetes_sd_configs:

@@ -103,7 +103,12 @@ prometheus:
       enabled: true
       size: 10Gi
       storageClass: "standard"
-
+  extraScrapeConfigs: |
+    - job_name: 'postfix-server-exporter'
+      metrics_path: /metrics
+      static_configs:
+        - targets: 
+          - mail.longppham5.xyz:9100
 filebeat:
   enabled: false
   filebeatConfig:
