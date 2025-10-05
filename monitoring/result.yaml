@@ -759,9 +759,10 @@ metadata:
 spec:
   accessModes:
     - ReadWriteOnce
+  storageClassName: "standard"
   resources:
     requests:
-      storage: "8Gi"
+      storage: "10Gi"
 ---
 # Source: loki-stack/charts/grafana/templates/clusterrole.yaml
 kind: ClusterRole
@@ -2070,7 +2071,7 @@ spec:
         - ReadWriteOnce
       resources:
         requests:
-          storage: "20Gi"
+          storage: "10Gi"
       storageClassName: standard
 ---
 # Source: loki-stack/charts/prometheus/charts/alertmanager/templates/statefulset.yaml
